@@ -2,102 +2,173 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <title>Fitness Tools Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>フィットネス計算ツール一覧</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #111;
-      color: #fff;
       margin: 0;
-      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e url('https://i.ibb.co/QnFNmz3/dumbbell-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #f1f1f1;
     }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.8);
+      min-height: 100vh;
+      padding: 30px;
+    }
+
     .container {
       max-width: 900px;
       margin: auto;
     }
+
     h1 {
       text-align: center;
-      color: #f39c12;
+      color: #00ffc3;
     }
+
+    .lang-toggle {
+      text-align: right;
+      margin-bottom: 15px;
+    }
+
     .tool-block {
-      background: #222;
-      border-radius: 8px;
-      padding: 20px;
+      background: #1a1a1a;
       margin: 20px 0;
+      border-left: 5px solid #00ffc3;
+      padding: 20px;
+      border-radius: 8px;
     }
+
     .tool-block h2 {
       margin-top: 0;
-      color: #00d1b2;
+      color: #00ffc3;
     }
+
     .tool-block p {
       margin-bottom: 10px;
     }
+
     .tool-block a {
       display: inline-block;
-      background: #f39c12;
+      background: #00ffc3;
       color: #000;
-      padding: 10px 15px;
+      padding: 10px 20px;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
     }
+
     .notice {
-      background: #444;
-      padding: 10px;
-      border-left: 4px solid #f39c12;
-      margin: 20px 0;
+      background: #333;
+      padding: 15px;
+      border-left: 5px solid #ffaf00;
+      margin-top: 30px;
+      color: #fff;
     }
+
     .insta {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
     }
+
     .insta img {
-      width: 150px;
-      border-radius: 12px;
+      width: 120px;
+      border-radius: 10px;
     }
-    .insta p {
-      margin-top: 10px;
+
+    .insta a {
+      color: #00ffc3;
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <h1>フィットネス計算ツール一覧</h1>
+<div class="overlay">
+  <div class="container">
 
-  <div class="notice">
-    <strong>※必ず上から順番に使用してください！</strong><br>
-    データの正確な連携のため、<span style="color: #f39c12;">1番 → 2番 → 3番 → 4番</span>の順に行ってください。
-  </div>
+    <div class="lang-toggle">
+      <button onclick="setLanguage('ja')">日本語</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
 
-  <div class="tool-block">
-    <h2>1. 基礎代謝・TDEE計算機</h2>
-    <p>Harris-Benedict式と活動レベルから基礎代謝・1日の消費カロリーを計算します。</p>
-    <a href="https://sorjdshao.github.io/calorie-estimator/" target="_blank">ツールを開く</a>
-  </div>
+    <h1 id="title">フィットネス計算ツール一覧</h1>
 
-  <div class="tool-block">
-    <h2>2. 体脂肪率計算機（米軍式）</h2>
-    <p>首囲・腹囲・身長などのデータから体脂肪率を推定します（男女対応）。</p>
-    <a href="https://sorjdshao.github.io/bodyfat-multilangEnglish/" target="_blank">ツールを開く</a>
-  </div>
+    <div class="notice" id="notice">
+      ※必ず上から順番に使用してください！<br>
+      正しいデータ連携のため、<b>1 → 2 → 3 → 4</b>の順にご利用ください。
+    </div>
 
-  <div class="tool-block">
-    <h2>3. 減量計画計算機</h2>
-    <p>目標体重までの日数や、1週間ごとの減量ペースを自動算出します。</p>
-    <a href="https://sorjdshao.github.io/Fat-Loss-Planner/" target="_blank">ツールを開く</a>
-  </div>
+    <div class="tool-block">
+      <h2 id="tool1">1. 基礎代謝・TDEE計算機</h2>
+      <p id="desc1">Harris-Benedict式で消費カロリーを計算</p>
+      <a href="https://sorjdshao.github.io/calorie-estimator/" target="_blank">開く</a>
+    </div>
 
-  <div class="tool-block">
-    <h2>4. マクロ計算機（PFCバランス）</h2>
-    <p>TDEEと感受性に基づき、PFCバランス・食事スケジュール・水分塩分量をカスタマイズ。</p>
-    <a href="https://sorjdshao.github.io/Macro-Calculator/"target="_blank">ツールを開く</a>
-  </div>
+    <div class="tool-block">
+      <h2 id="tool2">2. 体脂肪率計算機（米軍式）</h2>
+      <p id="desc2">首囲・腹囲・身長などから体脂肪率を推定</p>
+      <a href="https://sorjdshao.github.io/bodyfat-multilangEnglish/" target="_blank">開く</a>
+    </div>
 
-  <div class="insta">
-    <img src="3CB784A8-7518-4C0C-8260-947B6231C578.jpeg" alt="Instagram QR">
-    <p>質問はこちらまで：<br><a href="https://www.instagram.com/takatsugu98" style="color: #f39c12;">@takatsugu98</a></p>
+    <div class="tool-block">
+      <h2 id="tool3">3. 減量計画計算機</h2>
+      <p id="desc3">目標体重までの減量ペースを自動で計算</p>
+      <a href="https://sorjdshao.github.io/Fat-Loss-Planner/" target="_blank">開く</a>
+    </div>
+
+    <div class="tool-block">
+      <h2 id="tool4">4. マクロ計算機（PFCバランス）</h2>
+      <p id="desc4">TDEEに基づくPFC計算＋水・塩分調整</p>
+      <a href="https://sorjdshao.github.io/Macro-Calculator/" target="_blank">開く</a>
+    </div>
+
+    <div class="insta">
+      <img src="https://i.ibb.co/G3YZtB2/insta-qr.jpg" alt="Instagram QR">
+      <p id="instaText">質問はこちらへ：<br><a href="https://www.instagram.com/takatsugu98" target="_blank">@takatsugu98</a></p>
+    </div>
+
   </div>
 </div>
+
+<script>
+function setLanguage(lang) {
+  const dict = {
+    ja: {
+      title: "フィットネス計算ツール一覧",
+      notice: "※必ず上から順番に使用してください！<br>正しいデータ連携のため、<b>1 → 2 → 3 → 4</b>の順にご利用ください。",
+      tool1: "1. 基礎代謝・TDEE計算機",
+      desc1: "Harris-Benedict式で消費カロリーを計算",
+      tool2: "2. 体脂肪率計算機（米軍式）",
+      desc2: "首囲・腹囲・身長などから体脂肪率を推定",
+      tool3: "3. 減量計画計算機",
+      desc3: "目標体重までの減量ペースを自動で計算",
+      tool4: "4. マクロ計算機（PFCバランス）",
+      desc4: "TDEEに基づくPFC計算＋水・塩分調整",
+      instaText: "質問はこちらへ：<br><a href='https://www.instagram.com/takatsugu98' target='_blank'>@takatsugu98</a>"
+    },
+    en: {
+      title: "Fitness Tool Portal",
+      notice: "Please follow the tools in order: <b>1 → 2 → 3 → 4</b><br>This ensures accurate calculation flow.",
+      tool1: "1. BMR & TDEE Calculator",
+      desc1: "Estimate daily calorie burn with Harris-Benedict formula",
+      tool2: "2. Body Fat Calculator (US Navy)",
+      desc2: "Estimate body fat % from measurements (neck, waist, height)",
+      tool3: "3. Fat Loss Planner",
+      desc3: "Plan your diet and weight loss speed towards goal weight",
+      tool4: "4. Macro Calculator (PFC)",
+      desc4: "Adjust PFC balance and hydration based on TDEE",
+      instaText: "Contact here for questions:<br><a href='https://www.instagram.com/takatsugu98' target='_blank'>@takatsugu98</a>"
+    }
+  };
+
+  const d = dict[lang];
+  for (const key in d) {
+    document.getElementById(key).innerHTML = d[key];
+  }
+}
+</script>
+
 </body>
 </html>
